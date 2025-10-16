@@ -3,10 +3,10 @@ import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle }
 
 import { MapPin } from "lucide-react";
 
-import { formatDate, getDayName } from "@/utils/dateUtils";
 import { useState } from "react";
 import type { WeatherCurrent, WeatherLocation } from "@/types";
 import { describeWeather, getWeatherIcon } from "@/utils/weatherUtils";
+import { formatDate, getDayName } from "@/utils/dateUtils";
 
 const WeatherCard = ({ location, current }: { location: WeatherLocation; current: WeatherCurrent }) => {
   const [unit, setUnit] = useState<"C" | "F">("C");

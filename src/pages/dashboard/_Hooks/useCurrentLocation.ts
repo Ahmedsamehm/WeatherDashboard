@@ -6,7 +6,7 @@ import type { WeatherCurrent, WeatherLocation } from "@/types";
 export function useCurrentLocation() {
   const [dataLocation, setDataLocation] = useState<{ location: WeatherLocation; current: WeatherCurrent } | null>(null);
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -18,7 +18,11 @@ export function useCurrentLocation() {
 
     navigator.geolocation.getCurrentPosition(
       async (position) => {
-        const { latitude, longitude } = position.coords;
+        setLoading(true);
+        setError(null);
+        setDataLocation(null);
+
+        const { latitude, longitude } = position.coords as { latitude: number; longitude: number };
 
         try {
           const { data } = await axios.get(`${weatherConfig.baseUrl}/current.json?key=${weatherConfig.apiKey}&q=${latitude},${longitude}&aqi=no`);
@@ -35,7 +39,7 @@ export function useCurrentLocation() {
         setLoading(false);
       }
     );
-  }, [loading]);
+  }, []);
 
   return { dataLocation, loading, error };
 }

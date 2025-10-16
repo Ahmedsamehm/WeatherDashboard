@@ -6,10 +6,9 @@ import useAstro from "../_Hooks/useAstro";
 
 export const TodayHighlights = ({ current }: { current: WeatherCurrent }) => {
   const hasData = (value: any) => value !== undefined && value !== null;
-  const { highlightData } = useAstro();
-  if (!highlightData) return;
+  const { highlightData, loading, error } = useAstro();
+  if (!highlightData) return loading ? <p>Loading...</p> : <p>{error}</p>;
   const { astronomy } = highlightData;
-  
 
   return (
     <div>

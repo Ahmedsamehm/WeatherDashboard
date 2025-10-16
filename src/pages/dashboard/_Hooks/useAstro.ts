@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 const useAstro = () => {
   const [highlightData, setHighlightData] = useState<{ location: WeatherLocation; astronomy: WeatherAstronomy } | null>(null);
 
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -18,6 +18,10 @@ const useAstro = () => {
 
     navigator.geolocation.getCurrentPosition(
       async (position) => {
+        setLoading(true);
+        setError(null);
+        setHighlightData(null);
+
         const { latitude, longitude } = position.coords;
 
         try {
@@ -35,7 +39,7 @@ const useAstro = () => {
         setLoading(false);
       }
     );
-  }, [loading]);
+  }, []);
   return { highlightData, loading, error };
 };
 
