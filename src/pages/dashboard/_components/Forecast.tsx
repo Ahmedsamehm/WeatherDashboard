@@ -7,7 +7,7 @@ import type { ForecastResponse } from "@/types";
 const Forecast = ({ forecast }: { forecast: ForecastResponse }) => {
   return (
     <div>
-      <Card className="bg-primary border-secondary p-4 size-full  max-h-[50vh]">
+      <Card className="bg-primary border-secondary p-4 size-full  min-h-[40vh]">
         <CardHeader className="px-2">
           <h3 className="text-xl font-semibold mb-1">3 Day Forecast</h3>
         </CardHeader>
