@@ -7,7 +7,7 @@ import { GetRandomWeather } from "@/utils/getRandomCity";
 import Loading from "@/components/Loading";
 
 const OthersCountries = () => {
-  const { countries, error, loading } = useRandomCountries();
+  const { countries, loading } = useRandomCountries();
   const { condition, temp } = GetRandomWeather();
 
   if (!countries || countries.length === 0) return null;
