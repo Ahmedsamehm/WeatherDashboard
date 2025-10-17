@@ -16,7 +16,7 @@ const OthersCountries = () => {
 
   return (
     <div>
-      <Card className="bg-primary border-secondary p-4 size-full">
+      <Card className="bg-primary border-secondary p-4 size-full max-h-[50vh] ">
         {loading ? (
           <Loading />
         ) : (

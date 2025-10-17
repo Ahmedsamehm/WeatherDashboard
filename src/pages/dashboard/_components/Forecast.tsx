@@ -7,11 +7,11 @@ import type { ForecastResponse } from "@/types";
 const Forecast = ({ forecast }: { forecast: ForecastResponse }) => {
   return (
     <div>
-      <Card className="bg-primary border-secondary p-4 size-full">
+      <Card className="bg-primary border-secondary p-4 size-full  max-h-[50vh]">
         <CardHeader className="px-2">
           <h3 className="text-xl font-semibold mb-1">3 Day Forecast</h3>
         </CardHeader>
-        <CardContent className="px-2">
+        <CardContent className="px-2 ">
           <ul className="flex flex-wrap gap-4 mx-auto text-sm text-muted-foreground font-semibold capitalize">
             {forecast?.forecastday?.map((day, index) => (
               <li key={index} className="grow">
