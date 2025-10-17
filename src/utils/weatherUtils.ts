@@ -1,25 +1,5 @@
 import type { WeatherCurrent } from "@/types";
 
-const weatherIconMap: Record<string, string> = {
-  Sunny: "/sun.png",
-  Clear: "/sun.png",
-  Overcast: "/cloud.png",
-  Cloudy: "/cloud.png",
-  "Partly cloudy": "/cloud.png",
-  Mist: "/cloud.png",
-  Fog: "/cloud.png",
-  Rain: "/raining.png",
-  "Light rain": "/raining.png",
-  "Heavy rain": "/raining.png",
-  Snow: "/raining.png",
-  Thunderstorm: "/Rain with Thunder.png",
-};
-
-export function getWeatherIcon(conditionText: string): string {
-  const key = Object.keys(weatherIconMap).find((k) => k.toLowerCase() === conditionText.toLowerCase());
-  return key ? weatherIconMap[key] : "/icons/default.png";
-}
-
 export function describeWeather(current: WeatherCurrent): string {
   const { condition, precip_mm, is_day, cloud, humidity, wind_kph } = current;
   const text = condition.text.toLowerCase();

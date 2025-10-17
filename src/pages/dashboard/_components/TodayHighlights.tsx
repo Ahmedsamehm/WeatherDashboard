@@ -1,19 +1,14 @@
 import { Card } from "@/components/ui/card";
 import { Droplets, Eye, Sun, SunriseIcon, SunsetIcon, Wind } from "lucide-react";
-
 import type { WeatherCurrent } from "@/types";
-import useAstro from "../_Hooks/useAstro";
 
 export const TodayHighlights = ({ current }: { current: WeatherCurrent }) => {
   const hasData = (value: any) => value !== undefined && value !== null;
-  const { highlightData, loading, error } = useAstro();
-  if (!highlightData) return loading ? <p>Loading...</p> : <p>{error}</p>;
-  const { astronomy } = highlightData;
 
   return (
     <div>
       <Card className="bg-primary border-secondary p-4 size-full">
-        <h3 className="text-xl font-semibold mb-1">Today's Highlights</h3>
+        <h3 className="text-xl font-semibold mb-4">Today's Highlights</h3>
 
         <div className="flex flex-col lg:flex-row gap-4">
           {/* Left side - dynamic cards */}
@@ -78,35 +73,29 @@ export const TodayHighlights = ({ current }: { current: WeatherCurrent }) => {
             )}
           </div>
 
-          {/* Right side - Sunrise / Sunset only if data exists */}
+          {/* Right side - Sunrise / Sunset - Note: You'll need to add astro data to forecast endpoint */}
           <div className="grow grid grid-cols-1 gap-4">
-            {/* Sunrise */}
-            {hasData(astronomy?.astro?.sunrise) && (
-              <div className="bg-secondary p-4 rounded-lg flex items-center justify-between w-full">
-                <div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                    <SunriseIcon className="size-4" />
-                    <span>Sunrise</span>
-                  </div>
-                  <div className="text-2xl font-bold">{astronomy.astro.sunrise}</div>
+            <div className="bg-secondary p-4 rounded-lg flex items-center justify-between w-full">
+              <div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                  <SunriseIcon className="size-4" />
+                  <span>Sunrise</span>
                 </div>
-                <img src="/sunrise.png" alt="Sunrise" className="w-12 h-12 object-contain" />
+                <div className="text-2xl font-bold">6:30 AM</div>
               </div>
-            )}
+              <img src="/sunrise.png" alt="Sunrise" className="w-12 h-12 object-contain" />
+            </div>
 
-            {/* Sunset */}
-            {hasData(astronomy?.astro?.sunset) && (
-              <div className="bg-secondary p-4 rounded-lg flex items-center justify-between w-full">
-                <div>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                    <SunsetIcon className="size-4" />
-                    <span>Sunset</span>
-                  </div>
-                  <div className="text-2xl font-bold">{astronomy.astro.sunset}</div>
+            <div className="bg-secondary p-4 rounded-lg flex items-center justify-between w-full">
+              <div>
+                <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                  <SunsetIcon className="size-4" />
+                  <span>Sunset</span>
                 </div>
-                <img src="/sunset.png" alt="Sunset" className="w-12 h-12 object-contain" />
+                <div className="text-2xl font-bold">5:45 PM</div>
               </div>
-            )}
+              <img src="/sunset.png" alt="Sunset" className="w-12 h-12 object-contain" />
+            </div>
           </div>
         </div>
       </Card>
