@@ -1,6 +1,7 @@
 # 🌦️ Weather Dashboard  
 ---
-<img width="1731" height="841" alt="localhost_5173_" src="https://github.com/user-attachments/assets/f6972891-5ae9-4bbc-8cf0-97cde3761516" />
+
+<img width="1920" height="917" alt="localhost_5173_ (1)" src="https://github.com/user-attachments/assets/f0c64521-ca10-4068-b61a-61eb283435ef" />
 
 Real-time weather dashboard built with **React 19**, **TypeScript**, and **Vite**.  
 Designed from a [Figma community design](https://www.figma.com/community/file/1410567203716932869) and powered by [WeatherAPI](https://www.weatherapi.com/).  
